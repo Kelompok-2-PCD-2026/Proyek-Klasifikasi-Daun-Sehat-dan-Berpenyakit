@@ -407,9 +407,9 @@ Format tabel hasil evaluasi:
 | Resize + Grayscale + Median Filter | Random Forest | 78.57% | 79.17% | 78.57% | 78.46% |
 | Resize + Grayscale + Median Filter | SVM | 100.00% | 100.00% | 100.00% | 100.00% |
 | Resize + Grayscale + Median Filter | KNN | 89.29% | 89.49% | 89.29% | 89.27% |
-| Resize + Grayscale + Median Filter + Histogram Equalization | Random Forest | 78.57% | 81.11% | 78.57% | 78.13% |
-| Resize + Grayscale + Median Filter + Histogram Equalization | SVM | 89.29% | 91.18% | 89.29% | 89.16% |
-| Resize + Grayscale + Median Filter + Histogram Equalization | KNN | 92.86% | 92.86% | 92.86% | 92.86% |
+| Resize + Grayscale + Median Filter + Histogram Equalization | Random Forest | 90.62% | 91% | 91% | 91% |
+| Resize + Grayscale + Median Filter + Histogram Equalization | SVM | 90.62% | 91% | 91% | 91% |
+| Resize + Grayscale + Median Filter + Histogram Equalization | KNN | 87.50% | 88% | 88% | 87% |
 | Resize + Grayscale + Median Filter + Sobel | Random Forest | 78.57% | 79.17% | 78.57% | 78.46% |
 | Resize + Grayscale + Median Filter + Sobel | SVM | 85.71% | 85.71% | 85.71% | 85.71% |
 | Resize + Grayscale + Median Filter + Sobel | KNN | 75.00% | 75.13% | 75.00% | 74.97% |
@@ -423,7 +423,7 @@ Nilai pada tabel dapat diisi setelah notebook `03.klasifikasi.ipynb` dijalankan.
 Analisis:
 
 - Pada percobaan pertama dilakukan resize dan grayscale, dilakukan resize 128x128 yang membuat ukuran citra seragam dan grayscale untuk mengubah citra RGB/BGR menjadi citra derajat keabuan. Grayscale mengubah citra tiga saluran warna menjadi hanya satu saluran warna tanpa menghilangkan karakteristik penting seperti bentuk, tepi, dan tekstur objek. Dengan menyederhanakan informasi piksel tersebut, proses pengolahan citra akan menjadi jauh lebih cepat dan efisien.
-- Pada percobaan kedua dilakukan preprocessing Resize → Grayscale → Histogram Equalization → Median Filter sebelum melakukan ekstraksi fitur GLCM. Berdasarkan hasil pengujian yang telah dilakukan, didapatkan hasil SVM dan Random Forest memiliki performa terbaik yakni dengan akurasi sebesar 90,63% dengan  hasil paling stabil dan akurat, sedangkan KNN memperoleh akurasi 87,50%. Peningkatan kontras karena proses histogram equalization dan pengurangan noise-noise dengan median filter membantu menghasilkan fitur tekstur yang lebih jelas. Hal ini menunjukkan bahwa kombinasi preprocessing pada percobaan kedua cukup efektif dalam mendukung proses klasifikasi pada daun sehat dan daun berpenyakit.
+- Pada percobaan kedua dilakukan preprocessing Resize → Grayscale → Histogram Equalization → Median Filter sebelum melakukan ekstraksi fitur GLCM. Berdasarkan hasil pengujian yang telah dilakukan, didapatkan hasil SVM dan Random Forest memiliki performa terbaik yakni dengan akurasi sebesar 90,62% dengan  hasil paling stabil dan akurat, sedangkan KNN memperoleh akurasi 87,50%. Peningkatan kontras karena proses histogram equalization dan pengurangan noise-noise dengan median filter membantu menghasilkan fitur tekstur yang lebih jelas. Hal ini menunjukkan bahwa kombinasi preprocessing pada percobaan kedua cukup efektif dalam mendukung proses klasifikasi pada daun sehat dan daun berpenyakit.
 - Pada percobaan ketiga dilakukan preprocessing Resize → Grayscale → Histogram Equalization → Median Filter → Sobel → Thresholding sebelum melakukan ekstraksi fitur GLCM. Berdasarkan hasil pengujian yang telah dilakukan, didapatkan hasil SVM dan KNN memiliki performa terbaik yakni dengan akurasi sebesar 93,75% dengan hasil paling stabil dan akurat, sedangkan Random Forest memperoleh akurasi 87,50%. Penerapan deteksi tepi Sobel yang dilanjutkan dengan thresholding membantu menonjolkan struktur garis tepi pada citra biner daun, sehingga fitur tekstur GLCM yang diekstraksi menjadi lebih representatif terhadap perbedaan pola antara daun sehat dan daun berpenyakit. Hal ini menunjukkan bahwa kombinasi preprocessing pada percobaan ketiga lebih efektif dibandingkan percobaan kedua dalam mendukung proses klasifikasi pada daun sehat dan daun berpenyakit.
 
 
