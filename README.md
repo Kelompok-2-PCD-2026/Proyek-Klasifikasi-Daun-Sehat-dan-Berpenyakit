@@ -223,9 +223,9 @@ Project ini menggunakan ... jenis preprocessing. Untuk melihat pengaruh penambah
 | Percobaan | Preprocessing yang Digunakan |
 |---|---|
 | Percobaan 1 | `percobaan1` |
-| Percobaan 2 | `prepo1`, `prepo2`, `prepo3`, `prepo4` |
-| Percobaan 3 | `prepo1`, `prepo2`, `prepo3`, `prepo4`, `prepo5` |
-| Percobaan 4 | `prepo1`, `prepo2`, `prepo3`, `prepo4`, `prepo5` |
+| Percobaan 2 | `percobaan1`, `percobaan2` |
+| Percobaan 3 | `percobaan1`, `percobaan2`, `percobaan3` |
+| Percobaan 4 | `percobaan1`, `percobaan2`, `percobaan3`, `percobaan4` |
 
 Dengan skenario ini, setiap hasil klasifikasi dapat dibandingkan untuk mengetahui preprocessing mana yang paling sesuai terhadap dataset hama tanaman.
 
@@ -288,7 +288,8 @@ File CSV yang dihasilkan:
 ```text
 hasil_ekstraksi_percobaan1.csv
 hasil_ekstraksi_percobaan2.csv
-
+hasil_ekstraksi_percobaan3.csv
+hasil_ekstraksi_percobaan4.csv
 ```
 
 ---
@@ -401,23 +402,19 @@ Format tabel hasil evaluasi:
 
 | Preprocessing | Model | Accuracy | Precision | Recall | F1-Score |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Resize + Grayscale | Random Forest | 92.86% | 93.75% | 92.86% | 92.82% |
-| Resize + Grayscale | SVM | 96.43% | 96.67% | 96.43% | 96.42% |
-| Resize + Grayscale | KNN | 92.86% | 93.75% | 92.86% | 92.82% |
-| Resize + Grayscale + Median Filter | Random Forest | 78.57% | 79.17% | 78.57% | 78.46% |
-| Resize + Grayscale + Median Filter | SVM | 100.00% | 100.00% | 100.00% | 100.00% |
-| Resize + Grayscale + Median Filter | KNN | 89.29% | 89.49% | 89.29% | 89.27% |
+| Resize + Grayscale | Random Forest | 87.50%% | 90.00% | 87.50% | 87.30% |
+| Resize + Grayscale | SVM | 90.62% | 92.10% | 90.62% | 90.54% |
+| Resize + Grayscale | KNN | 87.50%% | 90.00% | 87.50% | 87.30% |
 | Resize + Grayscale + Median Filter + Histogram Equalization | Random Forest | 90.62% | 91% | 91% | 91% |
 | Resize + Grayscale + Median Filter + Histogram Equalization | SVM | 90.62% | 91% | 91% | 91% |
 | Resize + Grayscale + Median Filter + Histogram Equalization | KNN | 87.50% | 88% | 88% | 87% |
-| Resize + Grayscale + Median Filter + Sobel | Random Forest | 78.57% | 79.17% | 78.57% | 78.46% |
-| Resize + Grayscale + Median Filter + Sobel | SVM | 85.71% | 85.71% | 85.71% | 85.71% |
-| Resize + Grayscale + Median Filter + Sobel | KNN | 75.00% | 75.13% | 75.00% | 74.97% |
-| Resize + Grayscale + Median Filter + Sobel + Thresholding | Random Forest | 71.43% | 73.33% | 71.43% | 70.83% |
-| Resize + Grayscale + Median Filter + Sobel + Thresholding | SVM | 78.57% | 78.57% | 78.57% | 78.57% |
-| Resize + Grayscale + Median Filter + Sobel + Thresholding | KNN | 71.43% | 71.88% | 71.43% | 71.28% |
+| Resize + Grayscale + Median Filter + Sobel + Thresholding | Random Forest | 87.50% | 88.00% | 87.50% | 87.84% |
+| Resize + Grayscale + Median Filter + Sobel + Thresholding | SVM | 93.75% | 94.44% | 93.75% | 93.73% |
+| Resize + Grayscale + Median Filter + Sobel + Thresholding | KNN | 93.75% | 93.75% | 93.75% | 93.75% |
+| Resize + Grayscale + Median Filter + Sobel + Thresholding + Opening + Closing| Random Forest | 98.44% | 87.50% | 87.50% | 87.50% |
+| Resize + Grayscale + Median Filter + Sobel + Thresholding + Opening + Closing| SVM | 89.00% | 90.62% | 90.62% | 90.62% |
+| Resize + Grayscale + Median Filter + Sobel + Thresholding + Opening + Closing| KNN | 88.00% | 84.00% | 88.00% | 84.00% |
 
-Nilai pada tabel dapat diisi setelah notebook `03.klasifikasi.ipynb` dijalankan.
 
 ### Analisis Preprocessing
 Analisis:
@@ -470,4 +467,4 @@ Folder `percobaan/` berisi hasil citra dari setiap tahapan preprocessing. Folder
 
 ## Kesimpulan
 
-Berdasarkan hasil penelitian yang telah dilakukan, dapat disimpulkan bahwa
+Berdasarkan hasil penelitian yang telah dilakukan, dapat disimpulkan bahwa melalui tahapan resize, grayscale, histogram equalization, median filtering, deteksi tepi Sobel, thresholding, serta operasi morfologi opening dan closing, diperoleh citra daun yang memiliki kualitas lebih baik dibandingkan citra awal. Noise berhasil dikurangi, kontras meningkat, tepi daun menjadi lebih jelas, dan objek daun dapat dipisahkan dari latar belakang dengan baik. Hasil ini menghasilkan citra yang lebih representatif untuk proses ekstraksi fitur dan klasifikasi pada tahap selanjutnya.
